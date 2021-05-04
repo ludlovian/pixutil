@@ -11,6 +11,8 @@
     "./uniq": "./src/uniq.mjs",
     "./sleep": "./src/sleep.mjs",
     "./exec": "./src/exec.mjs",
+    "./spawn": "./src/spawn.mjs",
+    "./exists": "./src/exists.mjs",
     "./once": "./src/once.mjs"
   },
   "scripts": {
