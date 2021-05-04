@@ -2,16 +2,16 @@
   "name": "pixutil",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.mjs",
-  "module": "src/index.mjs",
+  "main": "./src/index.mjs",
+  "module": "./src/index.mjs",
   "type": "module",
   "exports": {
     ".": "./src/index.mjs",
-    "./arrify": "/src/arrify.mjs",
-    "./uniq": "/src/uniq.mjs",
-    "./sleep": "/src/sleep.mjs",
-    "./exec": "/src/exec.mjs",
-    "./once": "/src/once.mjs"
+    "./arrify": "./src/arrify.mjs",
+    "./uniq": "./src/uniq.mjs",
+    "./sleep": "./src/sleep.mjs",
+    "./exec": "./src/exec.mjs",
+    "./once": "./src/once.mjs"
   },
   "scripts": {
     "clean": "rm -rf coverage/ node_modules/.cache/",
