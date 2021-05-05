@@ -72,6 +72,18 @@ test('compare object', () => {
   assert.not.ok(equal(b, a))
 })
 
+test('compare class with object', () => {
+  class Foo {}
+  const a = Object.assign(new Foo(), { bar: 'baz' })
+  const b = { ...a }
+
+  assert.not.ok(equal(a, b))
+  assert.not.ok(equal(b, a))
+
+  assert.ok(equal({ ...a }, b))
+  assert.ok(equal(b, { ...a }))
+})
+
 test('compare structured object', () => {
   const a = {
     foo: 'bar',
