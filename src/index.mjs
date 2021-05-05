@@ -1,9 +1,11 @@
+import arrify from './arrify.mjs'
+import clone from './clone.mjs'
+import equal from './equal/mjs'
+import exec from './exec.mjs'
+import exists from './exists.mjs'
 import once from './once.mjs'
 import sleep from './sleep.mjs'
-import uniq from './uniq.mjs'
-import exec from './exec.mjs'
 import spawn from './spawn.mjs'
-import exists from './exists.mjs'
-import arrify from './arrify.mjs'
+import uniq from './uniq.mjs'
 
-export { once, sleep, uniq, exec, spawn, exists, arrify }
+export { arrify, clone, equal, exec, exists, once, sleep, spawn, uniq }
