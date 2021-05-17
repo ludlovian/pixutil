@@ -4,8 +4,20 @@ import equal from './equal/mjs'
 import exec from './exec.mjs'
 import exists from './exists.mjs'
 import once from './once.mjs'
+import pipeline from './pipeline.mjs'
 import sleep from './sleep.mjs'
 import spawn from './spawn.mjs'
 import uniq from './uniq.mjs'
 
-export { arrify, clone, equal, exec, exists, once, sleep, spawn, uniq }
+export {
+  arrify,
+  clone,
+  equal,
+  exec,
+  exists,
+  once,
+  pipeline,
+  sleep,
+  spawn,
+  uniq
+}
