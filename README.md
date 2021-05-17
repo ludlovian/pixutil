@@ -29,6 +29,12 @@ A promise version of `fs.existsSync`
 
 Runs the wrapped function once only, caching the result.
 
+## pipeline
+`v = pipeline([x, ]fn1, fn2, ...)`
+
+Composes the functions in left-to-right order.
+If an object is supplied, then it applies the composed function instead of returning it.
+
 ## sleep
 
 `await`-able delay
