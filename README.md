@@ -43,6 +43,10 @@ If an object is supplied, then it applies the composed function instead of retur
 
 The same `child_process.spawn` function, but has a `.done` which is promise of success (or failure)
 
+## timeout
+`await timeout(p, ms = 5000)`
+Wraps a promise in a timeout
+
 ## uniq
 `uniq(elem, elem,...)` or `uniq(arr, arr,...)`
 

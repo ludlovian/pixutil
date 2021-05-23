@@ -7,6 +7,7 @@ import once from './once.mjs'
 import pipeline from './pipeline.mjs'
 import sleep from './sleep.mjs'
 import spawn from './spawn.mjs'
+import timeout from './timeout.mjs'
 import uniq from './uniq.mjs'
 
 export {
@@ -19,5 +20,6 @@ export {
   pipeline,
   sleep,
   spawn,
+  timeout,
   uniq
 }
