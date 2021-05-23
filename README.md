@@ -45,7 +45,7 @@ The same `child_process.spawn` function, but has a `.done` which is promise of s
 
 ## timeout
 `await timeout(p, ms = 5000)`
-Wraps a promise in a timeout
+Wraps a promise in a timeout. Or wraps an async function.
 
 ## uniq
 `uniq(elem, elem,...)` or `uniq(arr, arr,...)`

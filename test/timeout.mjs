@@ -36,4 +36,45 @@ test('times out a promise', async () => {
   assert.ok(end - start > 120)
 })
 
+test('wraps a succesful function', async () => {
+  const f = async (x, y) => x + y
+  const f2 = timeout(f, 500)
+  assert.type(f2, 'function')
+  const start = Date.now()
+  const res = await f2(8, 9)
+  const end = Date.now()
+
+  assert.is(res, 17)
+  assert.ok(end - start < 100)
+})
+
+test('wraps a throwing function', async () => {
+  const err = new Error('oops')
+  const f = () => {
+    throw err
+  }
+  const f2 = timeout(f, 500)
+  assert.type(f2, 'function')
+
+  const start = Date.now()
+  await f2()
+    .then(assert.unreachable)
+    .catch(e => assert.is(e, err))
+  const end = Date.now()
+
+  assert.ok(end - start < 100)
+})
+
+test('wraps a hanging function', async () => {
+  const f = () => new Promise(() => {})
+  const f2 = timeout(f, 150)
+  const start = Date.now()
+  await f2()
+    .then(assert.unreachable)
+    .catch(e => assert.ok(e instanceof timeout.TimedOut))
+  const end = Date.now()
+
+  assert.ok(end - start > 120)
+})
+
 test.run()
