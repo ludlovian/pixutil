@@ -24,6 +24,11 @@ A promise version of `child_process.execFile`
 
 A promise version of `fs.existsSync`
 
+## isResolved
+`if await (isResolved(p, ms = 20)) ...`
+
+Returns true/false if the promise has been resolved or not.
+
 ## once
 `f = once(g)`
 

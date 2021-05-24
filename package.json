@@ -12,6 +12,7 @@
     "./equal": "./src/equal.mjs",
     "./exec": "./src/exec.mjs",
     "./exists": "./src/exists.mjs",
+    "./is-resolved": "./src/is-resolved.mjs",
     "./once": "./src/once.mjs",
     "./pipeline": "./src/pipeline.mjs",
     "./sleep": "./src/sleep.mjs",
