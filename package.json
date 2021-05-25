@@ -15,9 +15,11 @@
     "./is-resolved": "./src/is-resolved.mjs",
     "./once": "./src/once.mjs",
     "./pipeline": "./src/pipeline.mjs",
+    "./serial": "./src/serial.mjs",
     "./sleep": "./src/sleep.mjs",
     "./spawn": "./src/spawn.mjs",
     "./timeout": "./src/timeout.mjs",
+    "./trigger": "./src/trigger.mjs",
     "./uniq": "./src/uniq.mjs"
   },
   "scripts": {

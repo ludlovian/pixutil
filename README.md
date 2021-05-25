@@ -40,6 +40,14 @@ Runs the wrapped function once only, caching the result.
 Composes the functions in left-to-right order.
 If an object is supplied, then it applies the composed function instead of returning it.
 
+## serial
+```
+const s = serial()
+await s.exec(fn)
+```
+
+Creates a serialiser which will only `exec` functions one at a time.
+
 ## sleep
 
 `await`-able delay
@@ -51,6 +59,10 @@ The same `child_process.spawn` function, but has a `.done` which is promise of s
 ## timeout
 `await timeout(p, ms = 5000)`
 Wraps a promise in a timeout. Or wraps an async function.
+
+## trigger
+
+Returns a pending promise which has `.resolve` and `.reject` props.
 
 ## uniq
 `uniq(elem, elem,...)` or `uniq(arr, arr,...)`
