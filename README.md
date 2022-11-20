@@ -6,7 +6,7 @@ Each is available as a separate import, or as a named import from the default pa
 ## arrify
 `arrify(x)`
 
-Puts the thing in an arrya if it isn't already one
+Puts the thing in an array if it isn't already one
 
 ## clone
 
