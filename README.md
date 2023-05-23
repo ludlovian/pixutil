@@ -29,6 +29,11 @@ A promise version of `fs.existsSync`
 
 Returns true/false if the promise has been resolved or not.
 
+## json
+
+Serialize/deserialize objs to json, including dates and undefined
+`import { serialize, deserialize} from ...`
+
 ## once
 `f = once(g)`
 
