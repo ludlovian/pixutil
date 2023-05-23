@@ -13,6 +13,7 @@
     "./exec": "./src/exec.mjs",
     "./exists": "./src/exists.mjs",
     "./is-resolved": "./src/is-resolved.mjs",
+    "./json": "./src/json.mjs",
     "./once": "./src/once.mjs",
     "./pipeline": "./src/pipeline.mjs",
     "./serial": "./src/serial.mjs",

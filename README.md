@@ -32,7 +32,10 @@ Returns true/false if the promise has been resolved or not.
 ## json
 
 Serialize/deserialize objs to json, including dates and undefined
-`import { serialize, deserialize} from ...`
+
+Provides `{ serialize, deserialize }` from the separate import
+
+Also provides `json = { serialize, deserialize }` from the main package
 
 ## once
 `f = once(g)`
