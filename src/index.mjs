@@ -1,6 +1,6 @@
 import arrify from './arrify.mjs'
 import clone from './clone.mjs'
-import equal from './equal/mjs'
+import equal from './equal.mjs'
 import exec from './exec.mjs'
 import exists from './exists.mjs'
 import isResolved from './is-resolved.mjs'
