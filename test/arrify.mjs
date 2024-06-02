@@ -1,11 +1,23 @@
-import { test } from 'uvu'
-import * as assert from 'uvu/assert'
+import { suite, test } from 'node:test'
+import assert from 'node:assert/strict'
 
 import arrify from '../src/arrify.mjs'
 
-test('converts to array if needed', t => {
-  assert.equal(arrify('foo'), ['foo'])
-  assert.equal(arrify(['foo']), ['foo'])
-})
+suite('arrify', () => {
+  test('does not convert if already array', () => {
+    const x = ['foo']
+    const exp = [...x]
+    const act = arrify(x)
 
-test.run()
+    assert.deepEqual(act, exp, 'returns identical array')
+    assert.equal(act, x, 'returns original object')
+  })
+
+  test('converts to array if needed', () => {
+    const x = 'foo'
+    const exp = [x]
+    const act = arrify(x)
+
+    assert.deepEqual(act, exp, 'Turns into array')
+  })
+})

@@ -1,28 +1,28 @@
-import { test } from 'uvu'
-import * as assert from 'uvu/assert'
+import { suite, test } from 'node:test'
+import assert from 'node:assert/strict'
 
 import trigger from '../src/trigger.mjs'
 
-test('creation', () => {
-  const t = trigger()
-  assert.is(t instanceof Promise, true)
-  assert.type(t.resolve, 'function')
-  assert.type(t.reject, 'function')
+suite('trigger', async () => {
+  test('creation', () => {
+    const t = trigger()
+    assert.equal(t instanceof Promise, true)
+    assert.equal(typeof t.resolve, 'function')
+    assert.equal(typeof t.reject, 'function')
+  })
+
+  test('resolving', async () => {
+    const t = trigger()
+    t.resolve(17)
+
+    assert.equal(await t, 17)
+  })
+
+  test('rejecting', async () => {
+    const t = trigger()
+    const err = new Error('oops')
+    t.reject(err)
+
+    await t.then(assert.fail, e => assert.equal(e, err))
+  })
 })
-
-test('resolving', async () => {
-  const t = trigger()
-  t.resolve(17)
-
-  assert.is(await t, 17)
-})
-
-test('rejecting', async () => {
-  const t = trigger()
-  const err = new Error('oops')
-  t.reject(err)
-
-  await t.then(assert.unreachable, e => assert.is(e, err))
-})
-
-test.run()

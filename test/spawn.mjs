@@ -1,21 +1,23 @@
-import { test } from 'uvu'
-import * as assert from 'uvu/assert'
+import { suite, test } from 'node:test'
+import assert from 'node:assert/strict'
 
 import spawn from '../src/spawn.mjs'
 
-test('runs okay', async () => {
-  const proc = spawn('ls', ['-l'])
-  let received
-  proc.stdout.on('data', () => (received = true))
-  assert.instance(proc.done, Promise)
+suite('spawn', async () => {
+  test('runs okay', async t => {
+    const called = t.mock.fn()
 
-  await proc.done
-  assert.ok(received)
+    const proc = spawn('ls', ['-l'])
+    proc.stdout.on('data', called)
+
+    assert.ok(proc.done instanceof Promise)
+
+    await proc.done
+    assert.ok(called.mock.callCount() > 0)
+  })
+
+  test('captures errors', async () => {
+    const proc = spawn('ls', ['--foobar'], { stdio: 'ignore' })
+    await proc.done.then(assert.fail, err => assert.ok(err instanceof Error))
+  })
 })
-
-test('captures errors', async () => {
-  const proc = spawn('ls', ['--foobar'], { stdio: 'ignore' })
-  await proc.done.then(assert.unreachable, err => assert.instance(err, Error))
-})
-
-test.run()

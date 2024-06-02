@@ -1,21 +1,21 @@
-import { test } from 'uvu'
-import * as assert from 'uvu/assert'
+import { suite, test } from 'node:test'
+import assert from 'node:assert/strict'
 
 import exec from '../src/exec.mjs'
 
-test('runs okay', async () => {
-  const p = exec('ls', ['-l'])
-  assert.instance(p, Promise)
+suite('exec', async () => {
+  await test('runs okay', async () => {
+    const p = exec('ls', ['-l'])
+    assert.ok(p instanceof Promise)
 
-  const result = await p
-  assert.ok('stdout' in result)
-  assert.ok('stderr' in result)
+    const result = await p
+    assert.ok('stdout' in result)
+    assert.ok('stderr' in result)
+  })
+
+  await test('captures errors', async () => {
+    const p = exec('ls', ['--foobar'])
+
+    await p.then(assert.fail, err => assert.ok(err instanceof Error))
+  })
 })
-
-test('captures errors', async () => {
-  const p = exec('ls', ['--foobar'])
-
-  await p.then(assert.unreachable, err => assert.instance(err, Error))
-})
-
-test.run()

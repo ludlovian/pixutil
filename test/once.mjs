@@ -1,33 +1,29 @@
-import { test } from 'uvu'
-import * as assert from 'uvu/assert'
+import { suite, test } from 'node:test'
+import assert from 'node:assert/strict'
 
 import once from '../src/once.mjs'
 
-test('construction', t => {
-  const fn = once(foo)
-  assert.type(fn, 'function')
-  assert.is(fn.name, 'foo')
+suite('once', () => {
+  function foo (x) {
+    return x * 10
+  }
+  test('construction', t => {
+    const fn = t.mock.fn(foo)
+    const wrapped = once(fn)
+    assert.equal(typeof wrapped, 'function')
+    assert.equal(wrapped.name, foo.name)
+  })
+
+  test('calls once', t => {
+    const fn = t.mock.fn(foo)
+    const wrapped = once(fn)
+
+    assert.equal(wrapped(2), 20)
+    assert.equal(fn.mock.callCount(), 1)
+
+    assert.equal(wrapped(3), 20)
+    assert.equal(fn.mock.callCount(), 1)
+
+    assert.ok(wrapped.called)
+  })
 })
-
-test('calls once', t => {
-  const fn = once(foo)
-  assert.type(fn, 'function')
-  assert.is(fn.name, 'foo')
-
-  calls = 0
-  assert.is(fn(2), 20)
-  assert.is(calls, 1)
-
-  assert.is(fn(3), 20)
-  assert.is(calls, 1)
-  assert.ok(fn.called)
-})
-
-let calls
-
-function foo (x) {
-  calls++
-  return x * 10
-}
-
-test.run()

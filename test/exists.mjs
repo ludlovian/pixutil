@@ -1,15 +1,15 @@
-import { test } from 'uvu'
-import * as assert from 'uvu/assert'
+import { suite, test } from 'node:test'
+import assert from 'node:assert/strict'
 
 import exists from '../src/exists.mjs'
 
-test('runs okay', async () => {
-  assert.is(await exists('test/exists.mjs'), true)
-  assert.is(await exists('test/foo.bar'), false)
-})
+suite('exists', async () => {
+  test('runs okay', async () => {
+    assert.equal(await exists('test/exists.mjs'), true)
+    assert.equal(await exists('test/foo.bar'), false)
+  })
 
-test('captures errors', async () => {
-  await exists({}).then(assert.unreachable, err => assert.instance(err, Error))
+  test('captures errors', async () => {
+    await exists({}).then(assert.fail, err => assert.ok(err instanceof Error))
+  })
 })
-
-test.run()
