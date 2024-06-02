@@ -8,6 +8,11 @@ Each is available as a separate import, or as a named import from the default pa
 
 Puts the thing in an array if it isn't already one
 
+## camelCase
+`camelCase(str)`
+
+Converts a variable name into camelCase.
+
 ## clone
 
 Deep clone of simple JS stuff (primitives, `Array`s, `Object`s & `Date`s)
