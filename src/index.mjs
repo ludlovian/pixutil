@@ -1,4 +1,5 @@
 import arrify from './arrify.mjs'
+import camelCase from './camelCase.mjs'
 import clone from './clone.mjs'
 import equal from './equal.mjs'
 import exec from './exec.mjs'
@@ -18,6 +19,7 @@ const json = { serialize, deserialize }
 
 export {
   arrify,
+  camelCase,
   clone,
   equal,
   exec,
