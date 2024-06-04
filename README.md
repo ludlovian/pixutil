@@ -55,11 +55,14 @@ If an object is supplied, then it applies the composed function instead of retur
 
 ## serial
 ```
-const s = serial()
-await s.exec(fn)
+const serial = createSerial()
+await serial.exec(fn)
+await serial(fn)
 ```
 
 Creates a serialiser which will only `exec` functions one at a time.
+
+Can nest serial calls - they are executed in the order of calls
 
 ## sleep
 
