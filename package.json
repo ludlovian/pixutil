@@ -13,6 +13,7 @@
     "./equal": "./src/equal.mjs",
     "./exec": "./src/exec.mjs",
     "./exists": "./src/exists.mjs",
+    "./guess": "./src/guess.mjs",
     "./is-resolved": "./src/is-resolved.mjs",
     "./json": "./src/json.mjs",
     "./once": "./src/once.mjs",

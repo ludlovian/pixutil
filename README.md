@@ -29,6 +29,22 @@ A promise version of `child_process.execFile`
 
 A promise version of `fs.existsSync`
 
+## guess
+`v = guess(x)`
+`v = guess(x, opts)`
+Guesses & converts data types.
+
+The default guesses:
+- `undefined` and `null` are returned as is
+- strings are converted to numbers if they aren't `NaN`
+- the strings `true` and `false` are converted to the Booleans
+
+If the following options are given, then it also:
+- `bool: true` will try to covert to a boolean, either via number, or whether the string starts with `t` or `f` of either case
+- `decimal: fn` will try to convert strings to a decimal
+- `xml: fn` will try to convert XML-ish to a Parsley
+- `date: true` will try to convert an ISO date object
+
 ## isResolved
 `if await (isResolved(p, ms = 20)) ...`
 

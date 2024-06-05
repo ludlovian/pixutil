@@ -4,6 +4,7 @@ import clone from './clone.mjs'
 import equal from './equal.mjs'
 import exec from './exec.mjs'
 import exists from './exists.mjs'
+import guess from './guess.mjs'
 import isResolved from './is-resolved.mjs'
 import { serialize, deserialize } from './json.mjs'
 import once from './once.mjs'
@@ -24,6 +25,7 @@ export {
   equal,
   exec,
   exists,
+  guess,
   isResolved,
   json,
   once,
