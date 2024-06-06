@@ -1,7 +1,7 @@
 import { suite, test } from 'node:test'
 import assert from 'node:assert/strict'
 
-import camelCase from '../src/camelCase.mjs'
+import camelCase from '../src/camel-case.mjs'
 
 suite('camelCase', () => {
   const tests = [

@@ -8,7 +8,7 @@
   "exports": {
     ".": "./src/index.mjs",
     "./arrify": "./src/arrify.mjs",
-    "./camelCase": "./src/camelCase.mjs",
+    "./camel-case": "./src/camel-case.mjs",
     "./clone": "./src/clone.mjs",
     "./equal": "./src/equal.mjs",
     "./exec": "./src/exec.mjs",

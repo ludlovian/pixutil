@@ -1,5 +1,5 @@
 import arrify from './arrify.mjs'
-import camelCase from './camelCase.mjs'
+import camelCase from './camel-case.mjs'
 import clone from './clone.mjs'
 import equal from './equal.mjs'
 import exec from './exec.mjs'
